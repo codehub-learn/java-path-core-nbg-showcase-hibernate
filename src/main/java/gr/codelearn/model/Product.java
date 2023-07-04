@@ -1,16 +1,23 @@
 package gr.codelearn.model;
 
+import com.sun.istack.NotNull;
+import lombok.*;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class Product extends BaseEntity{
+    @Column(nullable = false)
     private String serial;
     private String name;
     private BigDecimal price;
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @Column(nullable = false)
     private Category category;
 }

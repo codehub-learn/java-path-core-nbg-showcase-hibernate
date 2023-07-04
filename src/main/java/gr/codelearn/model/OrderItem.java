@@ -1,13 +1,17 @@
 package gr.codelearn.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class OrderItem {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class OrderItem extends BaseEntity{
     @ManyToOne
     private Order order;
     @ManyToOne
