@@ -18,6 +18,5 @@ public class Product extends BaseEntity{
     private String name;
     private BigDecimal price;
     @ManyToOne(optional = false)
-    @Column(nullable = false)
     private Category category;
 }

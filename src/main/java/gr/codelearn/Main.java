@@ -16,7 +16,7 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("MySQLModule");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("H2Module");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Customer customer = Customer.builder()
                 .firstname("Ioannis")

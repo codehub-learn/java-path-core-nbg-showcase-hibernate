@@ -4,20 +4,48 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
     <persistence-unit name="MySQLModule" transaction-type="RESOURCE_LOCAL">
-		<!-- Persistence provider -->
+		<!-- Persistence provider for MySQL-->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url"
-					  value="jdbc:mysql://localhost:3306/university?useTimezone=true&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true"/>
+					  value="jdbc:mysql://localhost:3306/eshop?useTimezone=true&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="root"/>
-
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true" />
         </properties>
     </persistence-unit>
+	<persistence-unit name="MsSQLModule" transaction-type="RESOURCE_LOCAL">
+		<!-- Persistence provider for MSSQL-->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+			<property name="javax.persistence.jdbc.url"
+					  value="jdbc:sqlserver://localhost:1433;databaseName=eshop;integratedSecurity=false;encrypt=false;trustServerCertificate=false"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value="P@ssword1234"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="H2Module" transaction-type="RESOURCE_LOCAL">
+		<!-- Persistence provider for MSSQL-->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:sample;DB_CLOSE_DELAY=-1"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
 </persistence>
 
