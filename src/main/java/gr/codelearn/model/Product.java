@@ -1,9 +1,11 @@
 package gr.codelearn.model;
 
-import com.sun.istack.NotNull;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -14,9 +16,13 @@ import java.math.BigDecimal;
 @Setter
 public class Product extends BaseEntity{
     @Column(nullable = false)
+    @NotNull
     private String serial;
+    @NotNull
     private String name;
+    @NotNull
     private BigDecimal price;
-    @ManyToOne(optional = false)
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.SET_NULL)
     private Category category;
 }
