@@ -12,8 +12,7 @@ import jakarta.persistence.Id;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Category extends BaseEntity{
     @NotNull
     private String description;

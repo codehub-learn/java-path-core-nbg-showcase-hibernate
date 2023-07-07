@@ -10,8 +10,7 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class OrderItem extends BaseEntity{
     @ManyToOne
     @NotNull

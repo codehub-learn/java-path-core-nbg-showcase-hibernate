@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
+@NamedQuery(name = "customersByCustomerCategories", query = "SELECT c FROM Customer c WHERE c.customerCategory IN :customerCategories")
 public class Customer extends BaseEntity{
     @NotNull(message = "Cannot be null.")
     @Email

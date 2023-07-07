@@ -16,8 +16,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Order extends BaseEntity{
     @ManyToOne(optional = false) // fetch: LAZY, EAGER
     @NotNull
@@ -32,5 +31,7 @@ public class Order extends BaseEntity{
     private BigDecimal totalCost;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @NotNull
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<OrderItem> orderItems;
 }
